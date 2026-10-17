@@ -32,7 +32,7 @@ class ListenService : Service(), RecognitionListener {
   if (!running) return
   val intent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH).apply {
    putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
-   putExtra(RecognizerIntent.EXTRA_LANGUAGE,"en-PK")
+   putExtra(RecognizerIntent.EXTRA_LANGUAGE,when(getSharedPreferences("heyassist",MODE_PRIVATE).getInt("language",0)) { 1->"ur-PK"; 2->"en-US"; else->"en-PK" })
    putExtra(RecognizerIntent.EXTRA_PARTIAL_RESULTS,true)
   }
   try { recognizer?.startListening(intent) } catch (_: Exception) { restart() }
