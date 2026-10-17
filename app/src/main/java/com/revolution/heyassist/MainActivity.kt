@@ -58,7 +58,7 @@ class MainActivity : Activity(), TextToSpeech.OnInitListener {
    setOnClickListener { onClick() }
   }
  private fun buildUi() {
-  val scroll=ScrollView(this).apply { fillViewport=true; setBackgroundColor(bg); clipToPadding=false }
+  val scroll=ScrollView(this).apply { isFillViewport=true; setBackgroundColor(bg); clipToPadding=false }
   val root=column(); root.setPadding(dp(22),dp(28),dp(22),dp(36)); scroll.addView(root)
   root.addView(text("HEY ASSIST  •  VOICE LAUNCHER",12f,Color.rgb(155,166,255),true))
   gap(root,9)
